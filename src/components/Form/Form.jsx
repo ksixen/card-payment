@@ -43,7 +43,7 @@ const Form = () => {
       <div className="form-header">
         <img src="assets/header-logo.svg" alt="logo" />
         <Link to="/cards">
-          <h1>Payment info</h1>
+          <h1>Cards</h1>
         </Link>
       </div>
 

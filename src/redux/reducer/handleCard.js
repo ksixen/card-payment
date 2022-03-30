@@ -1,22 +1,19 @@
-const initialStore = {
-  cards: [],
-  error: false,
-};
+const initialStore = [];
 
 const handleCart = (state = initialStore, action) => {
   const payload = action.payload;
 
-  const cards = initialStore.cards;
-
-  const isExist = cards.find((p) => p.card === payload.card);
-  const findIndex = cards.findIndex((p) => p.id === payload.id);
+  const isExist = state.find((p) => p["cc-number"] === payload["cc-number"]);
+  const findIndex = state.findIndex(
+    (p) => p["cc-number"] === payload["cc-number"]
+  );
 
   switch (action.type) {
     case "ADD_CARD_ITEM":
       if (isExist) {
-        return { ...state, error: true };
+        throw Error;
       } else {
-        return [...cards, payload];
+        return [...state, payload];
       }
     case "DELETE_CARD_ITEM":
       break;

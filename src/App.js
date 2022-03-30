@@ -1,12 +1,15 @@
-import Form from "./Form";
-import { useSelector } from "react-redux";
+import Form from "./components/Form";
+
+import { Route, Routes } from "react-router-dom";
+import CardsList from "./components/CardsList/CardsList";
 
 function App() {
-  const state = useSelector((store) => store);
-  console.log(state);
   return (
     <div className="app-wrapper">
-      <Form />
+      <Routes>
+        <Route path="/" exact element={<Form />} />
+        <Route path="/cards" element={<CardsList />} />
+      </Routes>
     </div>
   );
 }
